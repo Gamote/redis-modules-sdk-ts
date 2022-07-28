@@ -80,7 +80,7 @@ export class Module {
             if(this.showDebugLogs){
                 console.log(`${this.name}: Running command ${data.command} with arguments: ${data.args}`);
             }
-            const response = this.clusterNodes ? 
+            const response = this.clusterNodes ?
                 await this.cluster.cluster.call(data.command, data.args)
                     : await this.redis.send_command(data.command, data.args);
 
